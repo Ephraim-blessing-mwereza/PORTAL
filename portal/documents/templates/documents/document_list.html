@@ -1,0 +1,21 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document List</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+
+<body>
+    <h1>Uploaded Documents</h1>
+    <ul>
+        {% for document in documents %}
+            <li><a href="{{ document.file.url }}">{{ document.title }}</a></li>
+        {% empty %}
+            <li>No documents uploaded yet.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
